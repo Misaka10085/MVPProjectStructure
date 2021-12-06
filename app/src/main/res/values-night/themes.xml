@@ -1,0 +1,57 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MVPProjectStructure" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:windowBackground">@color/window_bg_dark</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/window_bg_dark</item>
+    </style>
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/black</item>
+        <item name="android:windowIsTranslucent">true</item>  <!-- 透明背景，解决启动白屏 -->
+        <item name="android:windowAnimationStyle">@style/anim_fade</item>
+        <item name="android:windowSoftInputMode">stateAlwaysHidden</item>
+    </style>
+
+    <!-- 若启动页失效，则在startActivity后 overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out); -->
+    <style name="anim_fade" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/anim_fade_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_fade_out</item>
+        <item name="android:activityCloseEnterAnimation">@anim/anim_fade_in</item>
+        <item name="android:activityCloseExitAnimation">@anim/anim_fade_out</item>
+    </style>
+
+    <!--启动页-->
+    <style name="FullScreenView" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <!-- 全面屏 -->
+    <style name="FullScreenTheme" parent="AppTheme">
+        <!-- 全屏显示 -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- 背景 -->
+        <item name="android:windowBackground">@color/color_transaction</item>
+        <!-- 透明导航栏 -->
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+</resources>

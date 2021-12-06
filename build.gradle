@@ -1,0 +1,65 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.5.31'
+    repositories {
+        maven { url 'https://jitpack.io' }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+//        google()
+//        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath 'com.jakewharton:butterknife-gradle-plugin:10.2.3'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+        maven { url "https://maven.aliyun.com/repository/google" }
+        maven { url "https://maven.aliyun.com/repository/public" }
+//        google()
+//        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext {
+    buildToolsVersion = '31.0.0'
+    compileSdkVersion = 31
+    minSdkVersion = 21
+    targetSdkVersion = 31
+
+    dependencies = [
+            kotlin_version       : 'org.jetbrains.kotlin:kotlin-stdlib:1.5.30',
+            appcompat            : 'androidx.appcompat:appcompat:1.2.0',
+            design               : 'com.google.android.material:material:1.0.0',
+            material             : 'com.google.android.material:material:1.2.1',
+            constraintlayout     : 'androidx.constraintlayout:constraintlayout:2.0.4',
+            butterknife          : 'com.jakewharton:butterknife:10.2.3',
+            butterknifeAnnotation: 'com.jakewharton:butterknife-compiler:10.2.3'
+    ]
+
+    configurations.all {
+        ResolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+//            if (requested.group == 'com.android.support') {
+//                if (!requested.name.startsWith("multidex")) {
+//                    details.useVersion support_version
+//                }
+//            }
+//            if (details.requested.group == 'androidx.core'
+//                    && !details.requested.name.contains('androidx')) {
+//                details.useVersion support_version
+//            }
+        }
+    }
+}

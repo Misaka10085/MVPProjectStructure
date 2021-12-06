@@ -1,0 +1,62 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">MVPProjectStructure</string>
+
+    <string name="string_use_default">使用默认</string>
+    <string name="string_default_res_url">Default ResUrl:%s</string>
+    <string name="string_confirm">确定</string>
+    <string name="string_res_url_input_hint">请输入%s</string>
+
+    <string name="string_dy_dialog_loading">加载中...</string>
+    <string name="string_simple_dialog_loading">加载中...</string>
+
+    <string name="string_filter_email">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-`¬!"£$%^*()~=#{}@:[];':,./?/*-_+</string>
+    <string name="string_filter_number">0123456789</string>
+    <string name="string_filter_pwd">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+
+    <string name="string_exit_notice">再次返回后退出</string>
+
+    <string name="string_new_version">发现新版本</string>
+    <string name="string_update_content_title">更新内容</string>
+    <string name="string_cancel">取消</string>
+    <string name="string_update_now">立即更新</string>
+
+    <string name="string_file_upload_success">文件上传成功</string>
+    <string name="string_file_upload_failed">文件上传失败</string>
+    <string name="string_accept_failed">权限获取失败</string>
+
+    <string name="string_dialog_ass_title">用户协议和隐私政策</string>
+    <string name="string_assignment_dialog_content">请您务必审慎阅读、充分理解“服务协议”和“隐私政策”各条款，包括但不限于：为了向你提供及时通讯、内容分享等服务，我们需要手机的设备信息、操作日志等个人信息。你可以在“设置”中查看、变更、删除个人信息并管理你的授权。</string>
+    <string name="string_assignment_dialog_content2">你可阅读<font color="#FC541E">《用户协议》</font>和<font color="#FC541E">《隐私政策》</font>了解详细信息。如你同意，请点击“同意”开始接受我们的服务</string>
+    <string name="string_refuse">拒绝</string>
+    <string name="string_agree">同意</string>
+
+    <string name="string_pay_suc">支付成功</string>
+    <string name="string_pay_fai">支付失败</string>
+    <string name="string_get_payment_info_failed">获取订单信息失败</string>
+    <string name="string_alipay_9000">订单支付成功</string>
+    <string name="string_alipay_8000">正在处理中（请查询订单的支付状态）</string>
+    <string name="string_alipay_4000">订单支付失败</string>
+    <string name="string_alipay_5000">重复请求</string>
+    <string name="string_alipay_6001">中途取消支付</string>
+    <string name="string_alipay_6002">网络连接出错</string>
+    <string name="string_alipay_6004">支付结果未知（请查询订单的支付状态）</string>
+    <string name="string_alipay_failed">支付失败</string>
+    <string name="string_user_denied">用户拒绝授权</string>
+    <string name="string_user_cancel">用户取消</string>
+
+    <string name="string_share_success">分享成功</string>
+    <string name="string_share_cancel">分享取消</string>
+    <string name="string_share_failed">分享参数错误,分享失败</string>
+
+    <string name="string_delete">删除</string>
+
+    <string name="string_enter">进入</string>
+
+    <string name="string_img_select">选择图片</string>
+    <string name="string_take_picture_select">拍摄</string>
+
+    <string name="string_init_x5_progressing_hint">正在加载X5内核，请稍后</string>
+
+    <string name="string_wx_data_error">数据错误</string>
+    <string name="string_get_wx_info_failed">获取微信信息失败</string>
+</resources>

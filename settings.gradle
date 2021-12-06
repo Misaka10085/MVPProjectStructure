@@ -1,0 +1,6 @@
+include ':multiple-status-view'
+include ':lib_common'
+include ':app'
+rootProject.name = "MVPProjectStructure"
+include ':zxinglibrary'
+include ':curtain'

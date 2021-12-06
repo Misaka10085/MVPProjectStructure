@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 最大高度RecyclerView -->
+    <declare-styleable name="MaxHeightRecyclerView">
+        <attr name="maxHeight" format="dimension" />
+    </declare-styleable>
+
+    <!--仿微信SwitchBtn/仿iOS的UiSwitch控件 Start-->
+    <declare-styleable name="WeChatSwitchBtn">
+        <attr name="switch_bg_color_closed" format="color" />
+        <attr name="switch_bg_color_open" format="color" />
+        <attr name="switch_bg_side_status" format="boolean" />
+        <attr name="switch_bg_side_size" format="dimension" />
+        <attr name="switch_bg_side_color" format="color" />
+        <attr name="switch_ball_color" format="color" />
+        <attr name="switch_ball_side_status" format="boolean" />
+        <attr name="switch_ball_side_size" format="dimension" />
+        <attr name="switch_ball_side_color" format="color" />
+    </declare-styleable>
+    <!--仿微信SwitchBtn/仿iOS的UiSwitch控件 End-->
+</resources>

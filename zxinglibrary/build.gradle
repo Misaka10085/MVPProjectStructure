@@ -1,0 +1,25 @@
+apply plugin: 'com.android.library'
+
+group='com.github.yuzhiqiang1993'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api files('libs/core-3.3.3.jar')
+    implementation rootProject.ext.dependencies.appcompat
+    implementation rootProject.ext.dependencies.design
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="color_transaction">#00ffffff</color>
+
+    <color name="color_main">#5296F7</color>
+    <color name="window_bg">#F7F7F7</color>
+    <color name="window_bg_dark">#FF000000</color>
+
+    <!-- 加载弹窗背景 -->
+    <color name="dialog_dy_load_bg">#E6333333</color>
+    <color name="dy_dialog_color1">#FF00EEEE</color>
+    <color name="dy_dialog_color2">#FFFF4040</color>
+
+    <!-- titleBar -->
+    <color name="title_bar_text_color">#FF222030</color>
+    <color name="title_bar_right_text_color">#A3222030</color>
+
+    <color name="color_73222030">#73222030</color>
+    <color name="color_A6222030">#A6222030</color>
+    <color name="color_222030">#222030</color>
+    <color name="color_606E82">#606E82</color>
+    <color name="color_73FFFFFF">#73FFFFFF</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_BDC2C7">#BDC2C7</color>
+    <color name="color_E3E7EB">#E3E7EB</color>
+    <color name="color_1A222030">#1A222030</color>
+</resources>

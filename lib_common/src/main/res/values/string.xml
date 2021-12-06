@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">appName</string>
+
+    <string name="string_html_text_view_loading">正在加载详情...</string>
+
+    <string name="string_download_hint">apk下载完毕，文件路径：</string>
+    <string name="string_update_progress">下载进度</string>
+
+    <string name="string_video_zero">00:00</string>
+
+    <string name="string_wifi_connected">已连接WIFI</string>
+    <string name="string_wifi_disconnected">当前使用数据流量</string>
+    <string name="string_net_disconnected">网络已断开</string>
+
+    <string name="string_add_download_failed">添加下载失败</string>
+    <string name="string_add_download_completed">已经下载完成</string>
+    <string name="string_remove_task_failed">移除任务失败</string>
+    <string name="string_stop">停止</string>
+    <string name="string_start_download">开始下载</string>
+    <string name="string_download_deleted">文件已删除</string>
+    <string name="string_download_success">文件下载完毕，文件路径：%s</string>
+    <string name="string_picture_glide_save_success">保存成功</string>
+</resources>

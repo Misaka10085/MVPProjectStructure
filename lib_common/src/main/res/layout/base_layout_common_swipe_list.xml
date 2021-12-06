@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/mSmartRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smart.refresh.header.MaterialHeader
+            android:id="@+id/mHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.classic.common.MultipleStatusView
+            android:id="@+id/mMultipleStatusView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:emptyView="@layout/custom_empty_view"
+            app:errorView="@layout/custom_error_view"
+            app:loadingView="@layout/custom_loading_view"
+            app:noNetworkView="@layout/custom_no_network_view">
+
+            <com.yanzhenjie.recyclerview.SwipeRecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:overScrollMode="never" />
+
+        </com.classic.common.MultipleStatusView>
+
+        <com.scwang.smart.refresh.footer.BallPulseFooter
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</FrameLayout>
