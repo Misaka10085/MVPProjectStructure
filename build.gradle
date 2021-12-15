@@ -39,7 +39,6 @@ ext {
     targetSdkVersion = 31
 
     dependencies = [
-            kotlin_version       : 'org.jetbrains.kotlin:kotlin-stdlib:1.5.30',
             appcompat            : 'androidx.appcompat:appcompat:1.2.0',
             design               : 'com.google.android.material:material:1.0.0',
             material             : 'com.google.android.material:material:1.2.1',

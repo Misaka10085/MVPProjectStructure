@@ -44,7 +44,7 @@ dependencies {
     api project(':multiple-status-view')
     // Retrofit
     api 'com.squareup.retrofit2:retrofit:2.9.0'
-    api 'com.squareup.retrofit2:converter-gson:2.8.1'
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
     api 'com.squareup.retrofit2:adapter-rxjava2:2.6.1'
     // RxJava
     api 'io.reactivex.rxjava2:rxjava:2.2.12'
