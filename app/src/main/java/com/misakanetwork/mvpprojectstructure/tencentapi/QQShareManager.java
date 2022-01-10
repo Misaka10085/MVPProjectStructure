@@ -55,13 +55,13 @@ public class QQShareManager {
     private QzoneShare qzoneShare;
     private QQShareResponse qqShareResponse;
 
-    public void registShare(Context context){
+    public void registShare(Context context) {
         //初始化数据
-        if(appId == null){
+        if (appId == null) {
             appId = TencentConfig.APP_ID;
         }
         //初始化分享代码
-        if(appId != null && (qqShare == null || qzoneShare == null)){
+        if (appId != null && (qqShare == null || qzoneShare == null)) {
             mTencent = Tencent.createInstance(appId, context);
             qqShare = new QQShare(context, mTencent.getQQToken());
             qzoneShare = new QzoneShare(context, mTencent.getQQToken());
@@ -70,41 +70,42 @@ public class QQShareManager {
 
     /**
      * 分享qq和空间
-     * @param shareContent 分享内容
-     * @param shareType  选择类型（qq、空间）
+     *
+     * @param shareContentWebpage 分享内容
+     * @param shareType           选择类型（qq、空间）
      */
-    public void shareByQQ(Activity activity, ShareContent shareContent, int shareType){
-        shareWebPage(activity, shareType, shareContent);
+    public void shareByQQ(Activity activity, ShareContentWebpage shareContentWebpage, int shareType) {
+        shareWebPage(activity, shareType, shareContentWebpage);
     }
 
-    private void shareWebPage(Activity activity, int shareType, ShareContent shareContent){
+    private void shareWebPage(Activity activity, int shareType, ShareContentWebpage shareContentWebpage) {
         Bundle params = new Bundle();
-        if(shareType == QQ_SHARE_TYPE_ZONE){
-            shareWebPageQzone(activity, shareContent, params);
-        }else{
-            shareWebPageQQ(activity, shareContent, params);
+        if (shareType == QQ_SHARE_TYPE_ZONE) {
+            shareWebPageQzone(activity, shareContentWebpage, params);
+        } else {
+            shareWebPageQQ(activity, shareContentWebpage, params);
         }
     }
 
-    private void shareWebPageQQ(Activity activity, ShareContent shareContent, Bundle params) {
-        params.putString(QQShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());
-        params.putString(QQShare.SHARE_TO_QQ_SUMMARY, shareContent.getContent());
+    public void shareWebPageQQ(Activity activity, ShareContentWebpage shareContentWebpage, Bundle params) {
+        params.putString(QQShare.SHARE_TO_QQ_TITLE, shareContentWebpage.getTitle());
+        params.putString(QQShare.SHARE_TO_QQ_SUMMARY, shareContentWebpage.getContent());
         params.putInt(QQShare.SHARE_TO_QQ_KEY_TYPE,
                 QQShare.SHARE_TO_QQ_TYPE_DEFAULT);
-        params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, shareContent.getURL());
-        params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, shareContent.getPicUrl());
+        params.putString(QQShare.SHARE_TO_QQ_TARGET_URL, shareContentWebpage.getUrl());
+        params.putString(QQShare.SHARE_TO_QQ_IMAGE_URL, shareContentWebpage.getPicUrl());
 
         doShareToQQ(activity, params, iUiListener);
     }
 
-    private void shareWebPageQzone(Activity activity, ShareContent shareContent, Bundle params) {
-        params.putString(QzoneShare.SHARE_TO_QQ_TITLE, shareContent.getTitle());
-        params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, shareContent.getContent());
+    public void shareWebPageQzone(Activity activity, ShareContentWebpage shareContentWebpage, Bundle params) {
+        params.putString(QzoneShare.SHARE_TO_QQ_TITLE, shareContentWebpage.getTitle());
+        params.putString(QzoneShare.SHARE_TO_QQ_SUMMARY, shareContentWebpage.getContent());
         params.putInt(QzoneShare.SHARE_TO_QZONE_KEY_TYPE,
                 QzoneShare.SHARE_TO_QZONE_TYPE_IMAGE_TEXT);
-        params.putString(QzoneShare.SHARE_TO_QQ_TARGET_URL, shareContent.getURL());
+        params.putString(QzoneShare.SHARE_TO_QQ_TARGET_URL, shareContentWebpage.getUrl());
         ArrayList<String> imageUrls = new ArrayList<String>();
-        imageUrls.add(shareContent.getPicUrl());
+        imageUrls.add(shareContentWebpage.getPicUrl());
         params.putStringArrayList(QzoneShare.SHARE_TO_QQ_IMAGE_URL, imageUrls);
         //params.putString(QzoneShare.SHARE_TO_QQ_IMAGE_URL, shareContent.getPicUrl());
 
@@ -115,7 +116,7 @@ public class QQShareManager {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if(qqShare != null){
+                if (qqShare != null) {
                     qqShare.shareToQQ(activity, params, iUiListener);
                 }
             }
@@ -126,14 +127,14 @@ public class QQShareManager {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                if(qzoneShare != null){
+                if (qzoneShare != null) {
                     qzoneShare.shareToQzone(activity, params, iUiListener);
                 }
             }
         }).start();
     }
 
-    private final IUiListener iUiListener = new IUiListener() {
+    public final IUiListener iUiListener = new IUiListener() {
         @Override
         public void onCancel() {
             sendRespCode(CALLBACK_CODE_CANCEL);
@@ -150,15 +151,20 @@ public class QQShareManager {
         }
 
         private void sendRespCode(int code) {
-            if(qqShareResponse != null){
+            if (qqShareResponse != null) {
                 qqShareResponse.respCode(code);
             }
         }
     };
 
-    public interface QQShareResponse{
+    public IUiListener getiUiListener() {
+        return iUiListener;
+    }
+
+    public interface QQShareResponse {
         /**
          * 分享结果
+         *
          * @param code 结果码
          */
         public void respCode(int code);
@@ -166,66 +172,62 @@ public class QQShareManager {
 
     /**
      * 注册结果回馈
+     *
      * @param qqShareResponse
      */
-    public void setOnQQShareResponse(QQShareResponse qqShareResponse){
+    public void setOnQQShareResponse(QQShareResponse qqShareResponse) {
         this.qqShareResponse = qqShareResponse;
     }
 
     /**
-     * 欢迎关注-阳光小强-http://blog.csdn.net/dawanganban
-     * @author lixiaoqiang
-     *
-     */
-    private abstract class ShareContent{
-        protected abstract int getShareWay();
-        protected abstract String getContent();
-        protected abstract String getTitle();
-        protected abstract String getURL();
-        protected abstract String getPicUrl();
-    }
-
-    /**
      * 设置分享链接的内容
-     * @author Administrator
      *
+     * @author Administrator
      */
-    public class ShareContentWebpage extends ShareContent{
+    public static class ShareContentWebpage {
         private String title;
         private String content;
         private String url;
         private String picUrl;
+
         public ShareContentWebpage(String title, String content,
-                                   String url, String picUrl){
+                                   String url, String picUrl) {
             this.title = title;
             this.content = content;
             this.url = url;
             this.picUrl = picUrl;
         }
 
-        @Override
-        protected String getContent() {
-            return content;
-        }
-
-        @Override
-        protected String getTitle() {
+        public String getTitle() {
             return title;
         }
 
-        @Override
-        protected String getURL() {
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getContent() {
+            return content;
+        }
+
+        public void setContent(String content) {
+            this.content = content;
+        }
+
+        public String getUrl() {
             return url;
         }
 
-        @Override
-        protected int getShareWay() {
-            return QQ_SHARE_WAY_WEBPAGE;
+        public void setUrl(String url) {
+            this.url = url;
         }
 
-        @Override
-        protected String getPicUrl() {
+        public String getPicUrl() {
             return picUrl;
+        }
+
+        public void setPicUrl(String picUrl) {
+            this.picUrl = picUrl;
         }
     }
 }

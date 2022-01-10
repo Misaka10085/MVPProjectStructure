@@ -6,10 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 
 import com.misakanetwork.lib_common.entity.MessageEvent;
-import com.misakanetwork.lib_common.utils.ActivityController;
 import com.misakanetwork.lib_common.utils.L;
 import com.misakanetwork.lib_common.utils.rx.RxBus;
-import com.misakanetwork.mvpprojectstructure.MainApplication;
 import com.misakanetwork.mvpprojectstructure.R;
 import com.misakanetwork.mvpprojectstructure.ui.activity.base.BaseCenterActivity;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
@@ -64,7 +62,6 @@ public class WXPayEntryActivity extends BaseCenterActivity implements IWXAPIEven
             if (resp.errCode == 0) {
                 showCenterToast(getString(R.string.string_pay_suc));
                 RxBus.getInstance().post(new MessageEvent(MessageEvent.EVENT_WX_PAYMENT_SUCCESS)); // 支付完成
-                ActivityController.getInstance().finishActivity();
             } else {
                 L.e("wxPayment", ">>> onResp: " + resp.errCode);
                 showCenterToast(getString(R.string.string_pay_fai));

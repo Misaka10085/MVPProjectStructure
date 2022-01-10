@@ -44,6 +44,9 @@
     <string name="string_user_denied">用户拒绝授权</string>
     <string name="string_user_cancel">用户取消</string>
 
+    <string name="string_ali_payment_need_install">请安装支付宝</string>
+    <string name="string_wx_payment_need_install">请安装微信</string>
+
     <string name="string_share_success">分享成功</string>
     <string name="string_share_cancel">分享取消</string>
     <string name="string_share_failed">分享参数错误,分享失败</string>

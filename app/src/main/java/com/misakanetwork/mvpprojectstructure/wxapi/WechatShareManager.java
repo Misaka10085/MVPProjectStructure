@@ -68,6 +68,48 @@ public class WechatShareManager {
     }
 
     /**
+     * 微信聊天分享
+     */
+    public void shareToWx(String title, String content, String image, String link) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap1 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.ic_launcher);
+                URL imageurl = null;
+                try {
+                    imageurl = new URL(image);
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    HttpURLConnection conn = (HttpURLConnection) imageurl.openConnection();
+                    conn.setDoInput(true);
+                    conn.connect();
+                    InputStream is = conn.getInputStream();
+                    bitmap1 = BitmapFactory.decodeStream(is);
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                if (bitmap1 == null) {
+                    bitmap1 = BitmapFactory.decodeResource(mContext.getResources(), R.mipmap.ic_launcher);
+                }
+                WXWebpageObject webpage = new WXWebpageObject();
+                webpage.webpageUrl = link;
+                WXMediaMessage msg = new WXMediaMessage(webpage);
+                msg.title = title;
+                msg.description = content;
+                msg.setThumbImage(bitmap1);
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = String.valueOf(System.currentTimeMillis());
+                req.message = msg;
+                req.scene = SendMessageToWX.Req.WXSceneSession;
+                mWXApi.sendReq(req);
+            }
+        }).start();
+    }
+
+    /**
      * 图片分享
      *
      * @param url       url
