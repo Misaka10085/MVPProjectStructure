@@ -53,7 +53,7 @@ dependencies {
     // 引入J神的rxrelay2，出现异常仍然可以处理
     api 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
     // rxjava3(支持rxPermission3)
-    api 'io.reactivex.rxjava3:rxjava:3.0.4'
+    api 'io.reactivex.rxjava3:rxjava:3.1.2'
 //    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
 //    api 'com.trello.rxlifecycle3:rxlifecycle-android-lifecycle:3.1.0'
 //    // If you want to bind to Android-specific lifecycles
@@ -76,7 +76,7 @@ dependencies {
     // RxPermissions
     api 'com.github.tbruyelle:rxpermissions:0.12'
     // Glide
-    api('com.github.bumptech.glide:glide:4.11.0') {
+    api('com.github.bumptech.glide:glide:4.12.0') {
         exclude group: "com.android.support"
     }
     // ShapedImageView

@@ -40,7 +40,7 @@ public class BaseModelImpl implements BaseContract.BaseModel {
         RequestBody description = RequestBody.create(MediaType.parse("multipart/form-data"), "images");
         descriptions.add(description);
 
-        String url = httpUrl + "upload/files";
+        String url = httpUrl + "image/upload/images";
         NetManager
                 .getInstance()
                 .getBaseApiService()

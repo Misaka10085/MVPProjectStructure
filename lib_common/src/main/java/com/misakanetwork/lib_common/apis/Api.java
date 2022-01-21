@@ -23,7 +23,7 @@ public interface Api {
 
     // 资源服务器
     String AREA_FILE_DEFAULT_NAME = "AREA_FILE_DEFAULT";
-    String AREA_FILE_DEFAULT_DOMAIN = "http://wxqy.sfhaox.cn:8088/";
+    String AREA_FILE_DEFAULT_DOMAIN = "http://qyss.magic-beans.cn:9000/";
 
     // Oss配置
     String OSS_RESULT_PATH = "https://tulehudong.oss-cn-chengdu.aliyuncs.com/"; // 上传后返回结果
